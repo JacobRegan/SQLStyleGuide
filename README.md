@@ -47,40 +47,40 @@ GetCompanyFunction --< Function
 
 ```SQL
 Declare
-	@CompanyNo Int = 1
-	, @Name nVarChar(100) = 'Company 1'
-	, @CountryNo Int = 1
-	, @EmailAddress nVarChar(100) = 'company@company1.com'
-	, @DateIncorporated Date = '2016-10-15'
-	, @IsActive Bit = 1
+	 @CompanyNo Int = 1
+	,@Name nVarChar(100) = 'Company 1'
+	,@CountryNo Int = 1
+	,@EmailAddress nVarChar(100) = 'company@company1.com'
+	,@DateIncorporated Date = '2016-10-15'
+	,@IsActive Bit = 1
 
 Insert Into
 	dbo.Company
 	(
-		CompanyNo
-		, Name
-		, CountryNo
-		, EmailAddress
-		, DateIncorporated
-		, IsActive
+		 CompanyNo
+		,Name
+		,CountryNo
+		,EmailAddress
+		,DateIncorporated
+		,IsActive
 	)
 	Values
 	(
-		@CompanyNo
-		, @Name
-		, @CountryNo
-		, @EmailAddress
-		, @DateIncorporated
-		, @IsActive
+		 @CompanyNo
+		,@Name
+		,@CountryNo
+		,@EmailAddress
+		,@DateIncorporated
+		,@IsActive
 	)
 
 Select
-		c.CompanyNo
-		, c.Name
-		, c.CountryNo
-		, c.EmailAddress
-		, c.DateIncorporated
-		, c.IsActive
+		 c.CompanyNo
+		,c.Name
+		,c.CountryNo
+		,c.EmailAddress
+		,c.DateIncorporated
+		,c.IsActive
 	From
 		dbo.Company c
 ```
@@ -91,12 +91,12 @@ Select
 
 ```SQL
 Select
-		c.CompanyNo
-		, c.Name
-		, c.CountryNo
-		, c.EmailAddress
-		, c.DateIncorporated
-		, c.IsActive
+		 c.CompanyNo
+		,c.Name
+		,c.CountryNo
+		,c.EmailAddress
+		,c.DateIncorporated
+		,c.IsActive
 	From
 		dbo.Company c
 	Where
@@ -126,12 +126,12 @@ Select
 
 ```SQL
 Select
-        c.CompanyNo
-        , c.Name
-        , c.CountryNo
-        , c.EmailAddress
-        , c.DateIncorporated
-        , c.IsActive
+         c.CompanyNo
+        ,c.Name
+        ,c.CountryNo
+        ,c.EmailAddress
+        ,c.DateIncorporated
+        ,c.IsActive
     From
         dbo.Company c
 ```
@@ -166,12 +166,12 @@ Select
 
 ```SQL
 Select
-        c.CompanyNo As Id
-        , c.Name
-        , c.CountryNo
-        , c.EmailAddress As Email
-        , c.DateIncorporated
-        , c.IsActive
+         c.CompanyNo As Id
+        ,c.Name
+        ,c.CountryNo
+        ,c.EmailAddress As Email
+        ,c.DateIncorporated
+        ,c.IsActive
     From
         dbo.Company c
 ```
@@ -195,11 +195,11 @@ Select
 
 ```SQL
 Select
-		c.CompanyNo
-		, Case
+		 c.CompanyNo
+		,Case
 			When c.IsActive = 1 Then 'Active'
 			Else 'InActive'
-		End As Active
+		 End As Active
 	From
 		dbo.Company c
 ```
@@ -239,14 +239,14 @@ Select
 
 ```SQL
 Select
-		c.CompanyNo
-		, (Select Count(*) From dbo.Company Where CountryNo = c.CountryNo) As CompanyCountryCount
+		 c.CompanyNo
+		,(Select Count(*) From dbo.Company Where CountryNo = c.CountryNo) As CompanyCountryCount
 	From
 		dbo.Company c
 
 Select
-		c.CompanyNo
-		, (
+		 c.CompanyNo
+		,(
 			Select
 					Count(*)
 				From
@@ -254,7 +254,7 @@ Select
 				Where
 					CountryNo = c.CountryNo
 					And c.IsActive = 1
-		) As CompanyCountryCount
+		 ) As CompanyCountryCount
 	From
 		dbo.Company c
 ```
@@ -267,9 +267,9 @@ Select
 
 ```SQL
 Select
-		@CompanyNo = 1
-		, @EmailAddress = c.EmailAddress
-		, @DateIncorporated = '2015-06-01'
+		 @CompanyNo = 1
+		,@EmailAddress = c.EmailAddress
+		,@DateIncorporated = '2015-06-01'
 	From
 		dbo.Company c
 	Where
